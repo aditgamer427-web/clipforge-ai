@@ -1,1 +1,193 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+  <title>ClipForge AI</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #090b12;
+      color: #f5f5fa;
+      font-family: Arial, sans-serif;
+      padding: 22px;
+    }
+    .app { max-width: 650px; margin: auto; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 0 45px;
+    }
+    .logo { font-size: 23px; font-weight: 800; }
+    .logo span { color: #8c75ff; }
+    .status {
+      font-size: 11px;
+      color: #77e5ad;
+      border: 1px solid #286448;
+      padding: 7px 10px;
+      border-radius: 20px;
+    }
+    .hero { margin-bottom: 30px; }
+    .tag {
+      color: #a995ff;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: clamp(34px, 9vw, 52px);
+      line-height: 1.12;
+      margin: 14px 0;
+    }
+    h1 span { color: #927dff; }
+    .sub { color: #9da2b2; line-height: 1.7; }
+    .panel {
+      background: #141824;
+      border: 1px solid #292e40;
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      background: #0b0e17;
+      color: white;
+      border: 1px solid #353b50;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 11px;
+      padding: 16px;
+      color: white;
+      background: linear-gradient(110deg,#7056ed,#a06bff);
+      font-size: 15px;
+      font-weight: bold;
+    }
+    button:disabled { opacity: .6; }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .feature {
+      background: #141824;
+      border: 1px solid #292e40;
+      padding: 17px;
+      border-radius: 13px;
+      font-size: 13px;
+    }
+    .feature b { display: block; margin-bottom: 8px; }
+    .feature small { color: #9299aa; }
+    #message {
+      color: #b7aaff;
+      font-size: 13px;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+    footer {
+      color: #73798a;
+      text-align: center;
+      margin: 40px 0 15px;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="logo">CLIPFORGE<span> AI</span></div>
+      <div class="status">● BUILDING V1.0</div>
+    </header>
+
+    <section class="hero">
+      <div class="tag">YOUR PERSONAL AI CLIPPER</div>
+      <h1>Long videos.<br><span>Shorter stories.</span></h1>
+      <p class="sub">
+        Turn long-form videos into engaging vertical clips.
+        Discover moments worth sharing.
+      </p>
+    </section>
+
+    <section class="panel">
+      <label for="videoUrl">YouTube video URL</label>
+      <input id="videoUrl" type="url"
+        placeholder="Paste your YouTube link here">
+
+      <label for="language">Caption language</label>
+      <select id="language">
+        <option value="both">English + Hinglish</option>
+        <option value="english">English</option>
+        <option value="hinglish">Hinglish</option>
+      </select>
+
+      <label for="count">Number of clips</label>
+      <select id="count">
+        <option value="10">10 clips</option>
+      </select>
+
+      <button id="start">✦ FIND VIRAL MOMENTS</button>
+      <div id="message">Your clipping studio is getting ready.</div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <b>✂️ Smart clipping</b>
+        <small>Find interesting moments</small>
+      </div>
+      <div class="feature">
+        <b>💬 Auto captions</b>
+        <small>English and Hinglish</small>
+      </div>
+      <div class="feature">
+        <b>📱 Vertical format</b>
+        <small>9:16 Shorts and Reels</small>
+      </div>
+      <div class="feature">
+        <b>⚡ Batch generation</b>
+        <small>Target: 10 clips per video</small>
+      </div>
+    </section>
+
+    <footer>CLIPFORGE AI · BUILT FOR CREATORS</footer>
+  </main>
+
+  <script>
+    const start = document.getElementById("start");
+    const message = document.getElementById("message");
+
+    start.addEventListener("click", () => {
+      const url = document.getElementById("videoUrl").value.trim();
+
+      if (!url) {
+        message.textContent = "Please paste a YouTube video link first.";
+        return;
+      }
+
+      if (!/(youtube\.com|youtu\.be)/i.test(url)) {
+        message.textContent = "Please enter a valid YouTube link.";
+        return;
+      }
+
+      message.textContent =
+        "Link format accepted! The video processing engine is not connected yet. Coming in the next development stage.";
+    });
+  </script>
+</body>
+</html>
+
